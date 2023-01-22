@@ -1,0 +1,96 @@
+{{ form_start(form) }}
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+
+
+                <div class="row">
+                    <div class="col-md-10">
+
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Gestionnaire de compte utilisateur</div>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="form-group row">
+                                    <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-md">
+                                        Informations individuelles
+                                    </label>
+                                    <div class="col-sm-8">
+                                        {{ form_row(form.noms) }}
+
+                                        {{ form_row(form.prenoms) }}
+
+                                        {{ form_row(form.genre) }}
+
+                                        {% if app.request.attributes.get('_route') == 'admin_users_edit' %}
+
+                                        {% if user.avatar %}
+
+                                        <p class="text-right">
+                                            <img src="{{ vich_uploader_asset(user) | imagine_filter('midle_size') }}" class="img-fluid d-block mb-3">
+                                        </p>
+
+                                        {% else %}
+
+                                        <p>Aucune image</p>
+
+                                        {% endif %}
+
+                                        {% else %}
+
+                                        <p class="text-right"><img src="{{ asset('img/user.jpg') }}" class="img-fluid mb-3"></p>
+
+                                        {% endif %}
+
+                                        {{ form_row(form.imageFile) }}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-md">A propos</label>
+                                    <div class="col-sm-8">
+                                        {{ form_row(form.biographie) }}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-md">Informations du compte</label>
+                                    <div class="col-sm-8">
+                                        {% if app.request.attributes.get('_route') == 'admin_users_new' %}
+
+                                        {{ form_row(form.email) }}
+
+                                        {{ form_row(form.plainPassword) }}
+
+                                        {% endif %}
+
+                                        {{ form_row(form.roles) }}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-md">Action</label>
+                                    <div class="col-sm-8">
+                                        <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{ form_end(form) }}

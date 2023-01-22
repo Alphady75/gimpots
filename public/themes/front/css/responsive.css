@@ -1,0 +1,45 @@
+/*RESPONSIVE DEVICE MEDIA 991PX*/
+
+@media (max-width: 1680px)  {
+
+}
+
+@media (max-width: 1320px)  {
+
+}
+
+@media (max-width: 1200px)  {
+	
+}
+
+@media (max-width: 991px)  {
+
+}
+
+/*RESPONSIVE DEVICE MEDIA 768PX*/
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width: 767px){
+	
+}
+
+/*RESPONSIVE DEVICE MEDIA 575PX*/
+@media (max-width: 575px)  {
+
+
+}
+
+/*RESPONSIVE DEVICE MEDIA 480PX*/
+@media (max-width: 480px)  {
+	
+}
+
+/*RESPONSIVE DEVICE MEDIA 360PX*/
+@media (max-width: 360px)  {
+
+	
+}
+
+

@@ -1,0 +1,124 @@
+<div id="wizard_container" class="rounded bg-white shadow shadow-sm p-3">
+	<div id="top-wizard">
+		<div id="progressbar"></div>
+	</div>
+	<!-- /top-wizard -->
+
+	{{ form_start(form, {'attr': {'id': 'registration_form'}}) }}
+
+	<legend class="font-weight-bold pb-0 pt-2">Faites ce test rapide (5min)</legend>
+	<input id="website" name="website" type="text" value="">
+	<!-- Leave for security protection, read docs for details -->
+	<div id="middle-wizard">
+
+		<div class="step">
+
+			<h3 class="main_question">Quel est votre profil?</h3>
+
+			{{ form_errors(form.sitMatrimoniale) }}
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+
+						{{ form_widget(form.sitMatrimoniale) }}
+
+					</div>
+				</div>
+			</div>
+
+			<h3 class="main_question">Quel âge avez-vous?</h3>
+			{{ form_errors(form.age) }}
+			<div class="form-group add_top_30">
+				{{ form_widget(form.age) }}
+			</div>
+
+			<h3 class="main_question">Combien d'enfants à charge avez-vous?</h3>
+			{{ form_errors(form.nbrEnfantsCharge) }}
+			<div class="form-group add_top_30">
+				{{ form_widget(form.nbrEnfantsCharge) }}
+			</div>
+		</div>
+		<!-- /step-->
+
+		<div class="step">
+			<h3 class="main_question">Logement, vous êtes:</h3>
+			{{ form_errors(form.sitLogement) }}
+
+			<div class="form-group">
+
+				{{ form_widget(form.sitLogement) }}
+
+			</div>
+
+			<h3 class="main_question">Quel est votre activité?</h3>
+			{{ form_errors(form.activite) }}
+
+			<div class="form-group">
+
+				{{ form_widget(form.activite) }}
+
+			</div>
+
+			<h3 class="main_question">Quels sont vos revenus net Mensuels?</h3>
+			{{ form_errors(form.revNetMensuels) }}
+
+			<div class="form-group">
+
+				{{ form_widget(form.revNetMensuels) }}
+
+			</div>
+		</div>
+		<!-- /step-->
+
+		<div class="step">
+			<h3 class="main_question">Votre résultat est prêt, veuillez remplir les champs ci-dessous:</h3>
+
+			{{ form_row(form.prenom) }}
+
+			{{ form_row(form.nom) }}
+
+			{{ form_row(form.email) }}
+
+			{{ form_row(form.codePostal) }}
+
+			{{ form_row(form.telephone) }}
+
+
+		</div>
+		<!-- /step-->
+
+		<div class="submit step" id="end">
+			<div class="summary text-center">
+				<div class="wrapper">
+					<h3></h3>
+				</div>
+				<div class="text-left">
+					<p>
+						Vous souhaitez réduire vos factures domestiques? <br>
+						Energie-forfait mobiles-internet-Assurance habitation <br>
+						Prenez rendez-vous téléphonique avec un expert des domestique partenaire et faites des
+						économies
+					</p>
+					<div class="form-group terms">
+						<label class="container_check" style="padding-top: 0px!important;">Pour assurer la confidentialité j'accepte q'un code secrèt me soit envoyé par mail <!--<a href="#" data-toggle="modal" data-target="#terms-txt">Terms and conditions</a> before Submit -->
+							<input type="checkbox" class="mt-4" name="terms" value="Yes" class="required">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /step last-->
+
+	</div>
+	<!-- /middle-wizard -->
+	<div id="bottom-wizard" class="">
+		<button type="button" name="backward" class="btn backward">Précédent</button>
+		<button type="button" name="forward" class="forward btn btn-primary">Suivant</button>
+		<button type="submit" name="process" class="submit btn btn-primary">{{ button_label|default('Soumettre') }}</button>
+	</div>
+	<!-- /bottom-wizard -->
+	{{ form_end(form) }}
+</div>
+<!-- /Wizard container -->

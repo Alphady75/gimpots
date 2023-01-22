@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} à propos{% endblock %}
+
+{% block body %}
+
+<section class="parallax_window_in" data-parallax="scroll" data-image-src="{{ asset('themes/front/img/core/1.jpeg')}}" data-natural-width="1120" data-natural-height="900">
+    <div id="sub_content_in">
+        <h1>A propos</h1>
+    </div>
+</section>
+<!-- START ABOUT US -->
+
+{{ include('home/_about_section.html.twig') }}
+
+{% endblock %}

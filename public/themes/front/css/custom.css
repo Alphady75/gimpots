@@ -1,0 +1,115 @@
+.content{
+	width: 90%;
+	margin: auto;
+}
+.container-top-less{
+	margin-top: -400px;
+}
+.bg-image{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.btn-primary,
+.bg-primary{
+	background: #082680!important;
+	border: none!important;
+}
+.text-primary{
+	color: #015cbe!important;
+}
+form input[type='text'],
+form input[type='number'],
+form input[type='email'],
+form textarea{
+	border: 1px solid #ededed!important;
+	border-radius: 5px!important;
+}
+form input[type='checkbox'],
+form input[type='radio']{
+	width: 20px!important;
+	height: 20px!important;
+	border: 2px solid #082680!important;
+}
+.form-check-label{
+	margin-left: 8px;
+}
+form label{
+	line-height: 13px;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: 400;
+}
+.pagination .page-item.active .page-link{
+	background: #082680!important;
+	color: white!important;
+	border: none!important;
+}
+.pagination .page-item a{
+	color: #082680!important;
+}
+.alert{
+	margin: 0px!important;
+}
+/*
+****************NAVBAR
+*/
+.navbar{
+	padding: 15px 0;
+}
+
+.navbar .nav-item:hover .nav-link,
+.navbar .nav-item.active .nav-link{
+	color: #082680!important;
+}
+.navbar .nav-item .nav-link{
+	font-size: 18px;
+	color: black;
+	font-weight: 600;
+}
+.section-padding{
+	padding: 3% 0;
+}
+.faq-section .card{
+	background: white!important;
+	margin-bottom: 20px!important;
+	border-radius: 2px!important;
+}
+.faq-section .card-header{
+	background: white!important;
+}
+.faq-section .card-header i{
+	margin-right: 10px;
+}
+.faq-section .card-header a{
+	color: gray!important;
+}
+.btn{
+	padding: 1rem 1.455rem!important;
+	font-size: 1.3rem!important;
+}
+/**
+ * Costom size
+**/
+.very-large-size{
+	font-size: 3.1rem!important;
+	font-weight: bold;
+	text-shadow: 0px 0px 30px 0px rgba(0,0,0,.1);
+}
+.large-size{
+	font-size: 2.5rem!important;
+	font-weight: 600;
+}
+.home-section .banner{
+	//height: auto;
+	padding-bottom: 90px; 
+	//background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7)), url('../img/core/1.jpeg') ;
+	background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.7)), url('../img/core/1.jpeg') ; 
+	background-repeat: no-repeat; 
+	background-size: cover; 
+	background-position: center;
+}
+
+/*
+************* FAQ SECTION
+*/

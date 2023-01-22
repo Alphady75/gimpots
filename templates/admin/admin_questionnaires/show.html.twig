@@ -1,0 +1,37 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Questionnaire n°{{ questionnaire.id }} {% endblock %}
+
+{% block pageHeader %}
+
+<div class="page-header">
+
+    <!-- Breadcrumb start -->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><h1 class="h3 font-weight-bold">Questionnaire n°{{ questionnaire.id }}</h1></li>
+    </ol>
+    <!-- Breadcrumb end -->
+
+    <!-- App actions start -->
+    <div class="app-actions">
+        <a href=" path('admin_questionnaires_index') }}" class="btn active">Tout les Questionnaires</a>
+    </div>
+    <!-- App actions end -->
+
+</div>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="table-responsive mb-4">
+
+    {{ include('questionnaire/_impot_result.html.twig') }}
+    
+</div>
+
+
+{{ include('admin/admin_questionnaires/_delete_form.html.twig') }}
+
+    
+{% endblock %}

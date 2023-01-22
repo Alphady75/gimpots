@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Testez votre éligibilité{% endblock %}
+
+{% block body %}
+
+{{ include('questionnaire/_test_eligibilite_section.html.twig') }}
+
+{% endblock %}
+
+{% block footer %}
+<section class="pt-4 pb-4">
+	<div class="container">
+		<hr>
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav justify-content-center">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_blog') }}">S'informer</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_evenements') }}">Evenement</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('pages_apropos') }}">A propos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('pages_contact') }}">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+

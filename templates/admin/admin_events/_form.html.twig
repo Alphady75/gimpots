@@ -1,0 +1,98 @@
+{{ form_start(form) }}
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label">Titre de l'événement</label>
+            <div class="col-sm-8">
+                {{ form_row(form.name) }}
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <label for="inputPassword" class="col-sm-2 col-form-label">Média</label>
+
+            <div class="col-sm-8">
+                {{ form_row(form.imageFile) }}
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <label for="inputPassword" class="col-sm-2 col-form-label">Vidéo ID</label>
+
+            <div class="col-sm-8">
+                {{ form_row(form.videoId) }}
+
+                {% if app.request.attributes.get('_route') == 'admin_events_edit' %}
+
+                {% endif %}
+                
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label">Ajouter un lien</label>
+            <div class="col-sm-8">
+                {{ form_row(form.link) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputPassword" class="col-sm-2 col-form-label">Date et l'heure</label>
+
+            <div class="col-sm-8">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.startAt) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.heureDebut) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.endAt) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.heureFin) }}
+                    </div>
+                </div>                
+                
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label">Contenu</label>
+            <div class="col-sm-8">
+                {{ form_row(form.description) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label">Options</label>
+            <div class="col-sm-8">
+                {{ form_row(form.online) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label">Actions</label>
+            <div class="col-sm-8">
+                <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+
+                {% if app.request.attributes.get('_route') == 'admin_events_edit' %}
+
+                    {{ include('admin/admin_events/_delete_form.html.twig') }}
+
+                {% endif %}
+            </div>
+        </div> 
+
+    </div>
+</div>
+
+{{ form_end(form) }}

@@ -1,0 +1,18 @@
+<div class="page-header">
+	
+	<!-- Breadcrumb start -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">Bienvenue sur l'espace d'administration, {{ app.user.prenoms }}</li>
+	</ol>
+	<!-- Breadcrumb end -->
+
+	<!-- App actions start -->
+	<div class="app-actions">
+		<a href="{{ path('admin_users_index') }}" class="btn">Comptes Utilisateurs</a>
+		<a href="{{ path('admin_posts_index') }}" class="btn">Articles</a>
+		<a href="{{ path('admin_events_index') }}" class="btn">Evénements</a>
+		<a href="{{ path('admin_questionnaires_index') }}" class="btn active">Questionaires</a>
+	</div>
+	<!-- App actions end -->
+
+</div>

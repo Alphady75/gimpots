@@ -1,0 +1,74 @@
+<table class="table table-hover m-0">
+	<tbody>
+		<tr>
+			<th>Situation Matrimoniale</th>
+			<td>
+				{% if questionnaire.sitMatrimoniale == "Marie" %}
+
+					Marié(e)
+
+				{% elseif questionnaire.sitMatrimoniale == "Celibataire" %}
+
+					Célibataire
+
+				{% elseif questionnaire.sitMatrimoniale == "Divorce" %}
+
+					Divorcé(e)
+
+				{% elseif questionnaire.sitMatrimoniale == "Veuf-ve" %}
+
+					Veuf(ve)
+
+				{% elseif questionnaire.sitMatrimoniale == "Cohabitant-legal" %}
+
+					Cohabitant légal
+
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+			<th>Âge</th>
+			<td>{{ questionnaire.age }} ans</td>
+		</tr>
+		<tr>
+			<th>Nombre d'enfants à charge</th>
+			<td>{{ questionnaire.nbrEnfantsCharge }}</td>
+		</tr>
+		<tr>
+			<th>Situation de Logement</th>
+			<td>{{ questionnaire.sitLogement }}</td>
+		</tr>
+		<tr>
+			<th>Activité</th>
+			<td>{{ questionnaire.activite }}</td>
+		</tr>
+		<tr>
+			<th>Revenus Net Mensuels</th>
+			<td>{{ questionnaire.revNetMensuels }}</td>
+		</tr>
+		<tr>
+			<th>Prénom</th>
+			<td>{{ questionnaire.prenom }}</td>
+		</tr>
+		<tr>
+			<th>Nom</th>
+			<td>{{ questionnaire.nom }}</td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td>{{ questionnaire.email }}</td>
+		</tr>
+		<tr>
+			<th>Code Postal</th>
+			<td>{{ questionnaire.codePostal }}</td>
+		</tr>
+		<tr>
+			<th>Téléphone</th>
+			<td>{{ questionnaire.telephone }}</td>
+		</tr>
+		<tr>
+			<th>Date</th>
+			<td>{{ questionnaire.created ? questionnaire.created|date('d/m/Y') : '' }}</td>
+		</tr>
+	</tbody>
+</table>

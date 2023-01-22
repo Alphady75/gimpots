@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.name }}{% endblock %}
+
+
+{% block body %}
+
+<section id="general_page" class="home2-blog-area">
+    <div class="container margin_60_35">
+        <div class="row">
+            <div class="col-lg-8" id="faq">
+
+                <div class="main_title_3 add_top_30">
+                    <span><em></em></span>
+                    <h2>{{ post.name }}</h2>
+                    <p>{{ post.user.prenoms }} / {{ post.created|date('d/m/Y') }} </p>
+                </div> 
+
+                {% if post.imageName %}
+                <img src="{{ vich_uploader_asset(post) | imagine_filter('very_large_size') }}" class="img-fluid d-block mb-3 mt-3">
+                {% endif %}
+
+                <div>{{ post.content|raw }}</div>
+
+            </div>
+
+            <aside class="col-lg-4" id="faq_cat">
+
+                {{ include('blog/_sidebar.html.twig') }}
+
+            </aside>
+            <!--/aside -->
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!--/container-->
+</section>
+
+
+{% endblock %}

@@ -1,20 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}{{ parent() }} Accueil {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<!-- Home section -->
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Sephora/Documents/PROJET APPLICATIONS WEB/app-symfony-6/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Sephora/Documents/PROJET APPLICATIONS WEB/app-symfony-6/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+{{ include('questionnaire/_test_eligibilite_section.html.twig') }}
+
+{{ include('home/_about_section.html.twig') }}
+
+{{ include('home/_temoignage_section.html.twig') }}
+
+<!-- Blog Area -->
+<section class="home2-blog-area section-padding">
+    <div class="container">
+        <div class="blog-top-title mb-4">
+            <div class="row align-items-center">
+                <div class="col-lg-10">
+                    <div class="bixol-title-area">
+                        <h2>Découvrez nos articles documentés <br>pour répondre à toutes vos questions</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home2-blog-slider" style="margin-top: 90px!important;">
+            <div class="row">
+                {% for post in lastposts() %}
+
+                <div class="col-md-4 d-flex align-content-stretch">
+                    {{ include('blog/_bloc_post.html.twig') }}
+                </div>
+
+                {% else %}
+
+                <div class="col-12"><p class="text-center">Aucune news pour l'instant</p></div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Area End -->
+
+{{ include('home/_faq_section.html.twig') }}
+
 {% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Questionnaires ( {{ questionnaires.getTotalItemCount }} ){% endblock %}
+
+{% block pageHeader %}
+
+<div class="page-header">
+
+    <!-- Breadcrumb start -->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><h1 class="h3 font-weight-bold">Questionnaires <span> ( {{ questionnaires.getTotalItemCount }} )</span></h1></li>
+    </ol>
+    <!-- Breadcrumb end -->
+
+    <!-- App actions start --
+    <div class="app-actions">
+        <a href=" path('admin_questionnaires_new') }}" class="btn active">Crée un événement</a>
+    </div>
+    <!-- App actions end -->
+
+</div>
+
+{% endblock %}
+
+{% block body %}
+<div class="table-responsive mb-4">
+    <table class="table table-hover table-bordered m-0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>CodePostal</th>
+                <th>Telephone</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for questionnaire in questionnaires %}
+            <tr>
+                <td>{{ questionnaire.id }}</td>
+                <td>{{ questionnaire.prenom }}</td>
+                <td>{{ questionnaire.nom }}</td>
+                <td>{{ questionnaire.email }}</td>
+                <td>{{ questionnaire.codePostal }}</td>
+                <td>{{ questionnaire.telephone }}</td>
+                <td>{{ questionnaire.created ? questionnaire.created|date('d/m/Y') : '' }}</td>
+                <td>{{ questionnaire.updated ? questionnaire.updated|date('d/m/Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_questionnaires_show', {'id': questionnaire.id}) }}" class="btn btn-primary">Afficher</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">Aucun questionnaire</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{{ knp_pagination_render(questionnaires) }}
+
+{% endblock %}

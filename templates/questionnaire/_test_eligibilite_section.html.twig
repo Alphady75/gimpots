@@ -1,0 +1,40 @@
+<section class="home-section" id="general_page">
+	<div class="banner parallax_window_in d-none d-sm-block" data-parallax="scroll" data-image-src="" data-natural-width="1120" data-natural-height="700">
+		<div class="caption">
+			
+		</div>
+	</div>
+	<div class="d-block d-sm-none" style="padding: 100px;">
+		
+	</div>
+	<div class="container container-top-less">
+		<div id="form_container">
+			<div class="row mt-5">
+
+				{% if app.request.attributes.get('_route') == 'app_home' %}
+
+				<div class="col-md-6" id="faq">
+
+					<h1 class="font-weight-bold very-large-size pb-4 d-none d-sm-block"><span class="text-primary">Faites baisser vos impôts en un clic !</span> Vérifiez si vous pouvez bénéficier de réductions. </h1>
+
+					<div class="step-elements d-none d-sm-block">
+						{{ include('home/_step_elements.html.twig') }}
+					</div>
+				</div>
+
+				{% endif %}
+
+				<div class="col-lg-6">
+
+					<div class="box_style_cat shadow-0">
+
+						{{ include('questionnaire/_form.html.twig') }}
+						
+					</div>
+
+				</div>
+			</div><!-- /Row -->
+		</div><!-- /Form_container -->
+	</div>
+</section>
+    <!-- Home section -->

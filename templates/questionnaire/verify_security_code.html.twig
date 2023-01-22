@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entrez votre code de sécurité{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+<section id="general_page" class="section-padding">
+	<div class="container margin_60_35">
+		<div class="main_title_3 add_top_30">
+			<span><em></em></span>
+			<h2>ACCEDER A MON RESULTAT</h2>
+			<p>Entrez votre code de sécurité.</p>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<div class="box_topic" href="#0">
+					<span class="d-block pb-4 pt-3"><img src="{{ asset('themes/front/img/prevention_icon_5.svg') }}" width="70" height="70" alt=""></span>
+					
+
+					{% if errors %}
+					<div>
+						<strong class="text-danger">{{ errors }}</strong>
+					</div>
+					{% endif %}
+
+					{{ form_row(form.securityCode) }}
+
+					<button type="submit" class="btn btn-primary" data-turbo="false">{{ button_label|default('Accéder à mont resultat') }}</button>
+
+				</div>
+			</div>
+		</div>
+		<!--/row-->
+	</div>
+
+</section>
+
+{{ form_end(form) }}
+
+
+{% endblock %}

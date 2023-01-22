@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos resultat{% endblock %}
+
+{% block body %}
+
+<section class="section-padding">
+	{% if questionnaire %}
+
+	{% if questionnaire.activite == "Etudiant" %}
+
+		{{ include('questionnaire/_bloc_message.html.twig') }}
+
+	{% elseif questionnaire.activite == "au-chomage-sans-activite" %}
+
+		{{ include('questionnaire/_bloc_message.html.twig') }}
+
+	{% endif %}
+
+
+	{% if questionnaire.activite == "Salarier" %}
+
+		{% if questionnaire.revNetMensuels < 2200 %}
+
+			{{ include('questionnaire/_bloc_message.html.twig') }}
+
+		{% else %}
+
+			{{ include('analyses/_salariers.html.twig') }}
+
+		{% endif %}
+
+	{% endif %}
+
+
+	{% if questionnaire.activite == "Independant-dirigeant" %}
+
+		{% if questionnaire.revNetMensuels < 2200 %}
+
+			{{ include('questionnaire/_bloc_message.html.twig') }}
+
+		{% else %}
+
+			{{ include('analyses/_independants.html.twig') }}
+
+		{% endif %}
+
+	{% endif %}
+
+{% endif %}
+
+</section>
+
+{% endblock %}

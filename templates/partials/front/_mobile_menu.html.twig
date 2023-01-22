@@ -1,0 +1,35 @@
+<header class="header_in d-block d-md-none bg-white">
+	<div class="container">
+		<div class="row">
+			<div class="col-3">
+				<a href="{{ path('app_home') }}"><img src="{{ asset('img/logo.png') }}" alt="" height="50"></a>
+			</div>
+			<div class="col-9">
+				<!-- /social -->
+				<a href="#0" class="cd-nav-trigger">Menu<span class="cd-icon"></span></a>
+				<!-- /menu button -->
+				<nav class="bg-white">
+					<ul class="cd-primary-nav bg-white">
+						<li class="{{ app.request.attributes.get('_route') == 'test_eligibilite' ? 'active' : '' }}">
+							<a class="animated_link" href="{{ path('test_eligibilite') }}">Reduire vos impôts</a>
+						</li>
+						<li class="{{ app.request.attributes.get('_route') == 'app_blog' ? 'active' : '' }}">
+							<a class="animated_link" href="{{ path('app_blog') }}">S'informer</a>
+						</li>
+						<li class="{{ app.request.attributes.get('_route') == 'app_evenements' ? 'active' : '' }}">
+							<a class="animated_link" href="{{ path('app_evenements') }}">Evénements</a>
+						</li>
+						<li class="{{ app.request.attributes.get('_route') == 'pages_apropos' ? 'active' : '' }}">
+							<a class="animated_link" href="{{ path('pages_apropos') }}">A propos</a>
+						</li>
+						<li class="{{ app.request.attributes.get('_route') == 'pages_contact' ? 'active' : '' }}">
+							<a class="animated_link" href="{{ path('pages_contact') }}">Contact</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- /menu -->
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
+</header>

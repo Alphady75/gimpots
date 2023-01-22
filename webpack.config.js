@@ -22,6 +22,12 @@ Encore
      */
     .addEntry('app', './assets/app.js')
 
+    .addEntry('import', './public/themes/front/css/imports.css')
+
+    .addEntry('custom', './public/themes/front/css/custom.css')
+
+    .addEntry('style', './public/themes/front/css/style.css')
+
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 

@@ -1,0 +1,81 @@
+<section id="general_page" class="home2-blog-area">
+	<div class="container margin_60_35">
+		<div class="row">
+
+			<aside class="col-lg-6" id="faq_cat">
+
+				<div class="box_style_cat" id="faq_box">
+					<div class="main_title_3 add_top_30">
+						<span><em></em></span>
+						<h2>13250,00{{ currency }}</h2>
+						<p>Gain de 18% d’économie / par an</p>
+					</div>
+				</div>
+
+				<ul class="list-group">
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						<h5>CHARGES MENSUELLES</h5>
+					</li>
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						Enfants à charge ( {{ questionnaire.nbrEnfantsCharge }} )
+
+						<span class="badge badge-primary badge-pill">
+
+							{% if questionnaire.nbrEnfantsCharge == 0 %}
+
+							{% elseif questionnaire.nbrEnfantsCharge == 1 %}
+								1.690
+							{% elseif questionnaire.nbrEnfantsCharge == 2 %}
+								4.340
+							{% elseif questionnaire.nbrEnfantsCharge == 3 %}
+								9.730
+							{% elseif questionnaire.nbrEnfantsCharge == 4 %}
+								15.740
+							{% elseif questionnaire.nbrEnfantsCharge > 4 %}
+								15.740{{ currency }} avec un supplément de 6.010
+							{% endif %}
+
+							{{ currency }}
+						</span>
+
+					</li>
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						<h5>CREDIT D’IMPOT</h5>
+						<span class="badge badge-primary badge-pill float-right">13250,00{{ currency }}</span>
+					</li>
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						Prestation de ménage
+						<span class="badge badge-primary badge-pill float-right"></span>
+					</li>
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						Garde d’enfants
+						<span class="badge badge-primary badge-pill"></span>
+					</li>
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						Dons divers associations etc.
+						<span class="badge badge-primary badge-pill"></span>
+					</li>
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						<h5>INVESTISSEMENT STARTUP ET DIVERS</h5>
+						<span class="badge badge-primary badge-pill"></span>
+					</li>
+					<li class="list-group-item d-flex justify-content-left align-items-center">
+						<h5>PLAN D’EPARGNE</h5>
+						<span class="badge badge-primary badge-pill"></span>
+					</li>
+				</ul>
+
+			</aside>
+			<!--/aside -->
+
+			<div class="col-lg-5" id="faq">
+
+				{{ include('questionnaire/_impot_result.html.twig') }}
+
+			</div>
+
+		</div>
+		<!-- /row -->
+	</div>
+	<!--/container-->
+</section>

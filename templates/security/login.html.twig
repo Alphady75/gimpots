@@ -1,0 +1,55 @@
+{% extends 'auth.html.twig' %}
+
+{% block title %}{{ parent() }} Authentification{% endblock %}
+
+{% block body %}
+
+<form method="post">
+    <div class="row justify-content-md-center">
+        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <div class="login-screen border">
+                <div class="login-box">
+                    <a href="{{ path('app_login') }}" class="login-logo">
+                        <img src="{{ asset('img/logo.png') }}" class="img-fluid">
+                    </a>
+                    <h5>Bienvenue,<br />Connectez-vous avec votre compte avant de continuer.</h5>
+
+                    {% if error %}
+                    <div class="alert alert-danger">Combinaison login mot de passe incorrecte!</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconecter</a>
+                    </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Email...">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Mot de passe...">
+                    </div>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <div class="actions mb-4">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="_remember_me">
+                            <label class="custom-control-label" for="_remember_me">Garder ma session active</label>
+                        </div>
+                    </div>
+                    <div class="forgot-pwd">
+                        <a class="link" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+                    </div>
+                    <hr>
+                    <div class="actions align-left">
+                        <button type="submit" class="btn btn-info ml-0">Connexion</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

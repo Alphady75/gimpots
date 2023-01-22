@@ -1,0 +1,107 @@
+<nav id="sidebar" class="sidebar-wrapper">
+
+	<!-- Sidebar brand start  -->
+	<div class="sidebar-brand">
+		<a href="index.html" class="logo">
+			<img src="{{ asset('img/logo.png') }}" alt="{{ appName }} Logo" />
+		</a>
+	</div>
+	<!-- Sidebar brand end  -->
+	
+	<!-- User profile start -->
+	<div class="sidebar-user-details">
+		<div class="user-profile">
+			{% if app.user.avatar %}
+			<img src="{{ vich_uploader_asset(app.user) | imagine_filter('large_avatar') }}">
+			{% else %}
+			<img src="{{ asset('img/user.jpg') | imagine_filter('large_avatar') }}" class="profile-thumb" alt="User Thumb">
+			{% endif %}
+			<span class="status-label"></span>
+		</div>
+		<h6 class="profile-name">{{ app.user.prenoms ~ " " ~ app.user.noms }}</h6>					
+	</div>
+	<!-- User profile end -->
+
+	<!-- Sidebar content start -->
+	<div class="sidebar-content">
+
+		<!-- sidebar menu start -->
+		<div class="sidebar-menu">
+			<ul>
+				<li>
+					<a href="{{ path('admin_dashboard') }}">
+						<i class="icon-home2"></i>
+						<span class="menu-text">Tableau de Bord</span>
+					</a>
+				</li>
+				<li class="sidebar-dropdown">
+					<a href="#">
+						<i class="icon-book-open"></i>
+						<span class="menu-text">Articles</span>
+					</a>
+					<div class="sidebar-submenu">
+						<ul>
+							<li>
+								<a href="{{ path('admin_posts_index') }}">Liste</a>
+							</li>
+							<li>
+								<a href="{{ path('admin_posts_new') }}">Ajouter</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="sidebar-dropdown">
+					<a href="#">
+						<i class="icon-calendar1"></i>
+						<span class="menu-text">Evenements</span>
+					</a>
+					<div class="sidebar-submenu">
+						<ul>
+							<li>
+								<a href="{{ path('admin_events_index') }}">Liste</a>
+							</li>
+							<li>
+								<a href="{{ path('admin_events_new') }}">Ajouter</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+
+				<li class="sidebar-dropdown">
+					<a href="#">
+						<i class="icon-edit1"></i>
+						<span class="menu-text">Questionnaires</span>
+					</a>
+					<div class="sidebar-submenu">
+						<ul>
+							<li>
+								<a href="{{ path('admin_questionnaires_index') }}">Liste</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li class="sidebar-dropdown">
+					<a href="#">
+						<i class="icon-unlock"></i>
+						<span class="menu-text">Comptes utilisateurs</span>
+					</a>
+					<div class="sidebar-submenu">
+						<ul>
+							<li>
+								<a href="{{ path('admin_users_index') }}">Comptes</a>
+							</li>
+							<li>
+								<a href="{{ path('admin_users_new') }}">Nouveau compte</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- sidebar menu end -->
+
+	</div>
+	<!-- Sidebar content end -->
+	
+</nav>

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mail de rappel envoyer avec success{% endblock %}
+
+{% block body %}
+
+<section id="general_page" class="section-padding">
+	<div class="container margin_60_35">
+		<div class="main_title_3 add_top_30">
+			<span><em></em></span>
+			<h2>Mail de rappel envoyer avec succès</h2>
+			<p></p>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<div class="box_topic" href="#0">
+					<span class="d-block pb-4 pt-3"><img src="{{ asset('themes/front/img/prevention_icon_5.svg') }}" width="70" height="70" alt=""></span>
+					
+
+					<p class="lead">Merci de votre colaboration nous vous rappelerons très bientôt par cette adresse e-mail
+					<span class="badge badge-primary">{{ questionnaire.email }}</span>
+					</p>
+
+				</div>
+			</div>
+		</div>
+		<!--/row-->
+	</div>
+
+</section>
+
+{% endblock %}

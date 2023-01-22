@@ -1,0 +1,26 @@
+<div class="box_style_cat" id="faq_box">
+    <div class="main_title_3 add_top_30">
+        <span><em></em></span>
+        <h2>Dernières news</h2>
+        <p>S'informer</p>
+    </div>
+    <ul id="cat_nav">
+        {% for lastpost in lastposts() %}
+        <li>
+            <div class="media">
+                {% if lastpost.imageName %}
+                <a href="{{ path('app_blog_detail', {'slug': lastpost.slug }) }}">
+                    <img src="{{ vich_uploader_asset(lastpost) | imagine_filter('midle_avatar') }}">
+                </a>
+                {% endif %}
+                <div class="media-body ml-3">
+                    <span><i class="fa fa-calendar-alt"></i> {{ lastpost.created|date('d/m/Y') }}</span>
+                    <a href="{{ path('app_blog_detail', {'slug': lastpost.slug }) }}"><h4 class="h6">{{ lastpost.name }}</h4></a>
+                </div>
+            </div>
+        </li>
+        {% else %}
+        <li>Aucun article</li>
+        {% endfor %}
+    </ul>
+</div>

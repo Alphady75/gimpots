@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Blog{% endblock %}
+
+
+{% block body %}
+
+<section class="parallax_window_in bg-image" data-parallax="scroll" data-image-src="{{ asset('themes/front/img/core/1.jpeg')}}" style="background-image: url('img/core/1.jpeg');" data-natural-width="1120" data-natural-height="900">
+    <div id="sub_content_in">
+        <h1>Blog</h1>
+    </div>
+</section>
+<!-- /section -->
+
+<section id="general_page" class="home2-blog-area pt-5">
+    <div class="container margin_60_35">
+        <div class="row">
+            <div class="col-lg-8" id="faq">
+
+                <div class="home2-blog-slider">
+                    
+                    <div class="row">
+
+                        {% for post in posts %}
+                        <div class="col-md-6">
+
+
+                            {{ include('blog/_bloc_post.html.twig') }}
+
+
+                        </div>
+                        {% else %}
+
+                        <div class="col-12"><p class="lead">Aucune information pour l'instant</p></div>
+
+                        {% endfor %}
+                    </div>
+
+                    <div>
+                        {{ knp_pagination_render(posts) }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <aside class="col-lg-4" id="faq_cat">
+
+                {{ include('blog/_sidebar.html.twig') }}
+
+            </aside>
+            <!--/aside -->
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!--/container-->
+</section>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouvel événement{% endblock %}
+
+{% block pageHeader %}
+
+<div class="page-header">
+
+    <!-- Breadcrumb start -->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><h1 class="h3 font-weight-bold">Crée un événement</h1></li>
+    </ol>
+    <!-- Breadcrumb end -->
+
+    <!-- App actions start -->
+    <div class="app-actions">
+        <a href="{{ path('admin_events_index') }}" class="btn active">Liste des événements</a>
+    </div>
+    <!-- App actions end -->
+
+</div>
+
+{% endblock %}
+
+{% block body %}
+
+    {{ include('admin/admin_events/_form.html.twig') }}
+
+{% endblock %}

@@ -1,0 +1,6 @@
+{{ form_start(form, {'attr': {'id': 'form_id'}}) }}
+	
+	{{ form_row(form.email) }}
+
+	<button class="btn btn-primary">{{ button_label|default('Se faire rappeler gratuitement par cette email') }}</button>
+{{ form_end(form) }}

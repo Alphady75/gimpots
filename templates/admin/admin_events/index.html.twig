@@ -1,0 +1,69 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Evénements ( {{ events.getTotalItemCount }} ){% endblock %}
+
+{% block pageHeader %}
+
+<div class="page-header">
+
+    <!-- Breadcrumb start -->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><h1 class="h3 font-weight-bold">Evenements <span> ( {{ events.getTotalItemCount }} )</span></h1></li>
+    </ol>
+    <!-- Breadcrumb end -->
+
+    <!-- App actions start -->
+    <div class="app-actions">
+        <a href="{{ path('admin_events_new') }}" class="btn active">Crée un événement</a>
+    </div>
+    <!-- App actions end -->
+
+</div>
+
+{% endblock %}
+
+{% block body %}
+<div class="table-responsive mb-4">
+    <table class="table table-hover table-bordered m-0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Média</th>
+                <th>Slug</th>
+                <th>Statut</th>
+                <th>Publié le</th>
+                <th>Modifié le</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.name }}</td>
+                <td>
+                    {% if event.imageName %}
+                        <img src="{{ vich_uploader_asset(event) | imagine_filter('midle_avatar') }}">
+                    {% endif %}
+                </td>
+                <td>{{ event.slug }}</td>
+                <td><span class="badge badge-pill badge-{{ event.online ? 'success' : 'secondary' }}">{{ event.online ? 'Public' : 'Privé' }}</span></td>
+                <td>{{ event.created ? event.created|date('d/m/Y') : '' }}</td>
+                <td>{{ event.updated ? event.updated|date('d/m/Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_events_edit', {'id': event.id}) }}" class="btn btn-primary">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun événement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{{ knp_pagination_render(events) }}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+<h1>{{ appName }}</h1>
+
+<p>Destinataire: <a href="mailto: {{ useremail }}">{{ useremail }}</a></p>
+
+<p>Nom: <strong>{{ questionnaire.nom }}</strong></p>
+<p>Prénom: <strong>{{ questionnaire.prenom }}</strong></p>
+    
+<p>Sujet: Se faire rappeler gratuitement</p>
+
+{{ include('questionnaire/_impot_result.html.twig') }}

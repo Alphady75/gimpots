@@ -1,0 +1,175 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}{{ parent() }} Tableau de bord{% endblock %}
+
+{% block body %}
+
+<!-- Row start -->
+<div class="row gutters">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="info-stats2">
+            <div class="info-icon info">
+                <i class="icon-eye1"></i>
+            </div>
+            <div class="sale-num">
+                <h3>{{ users|length }}</h3>
+                <p>Utilisateurs</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="info-stats2">
+            <div class="info-icon danger">
+                <i class="icon-book-open"></i>
+            </div>
+            <div class="sale-num">
+                <h3>{{ posts|length }}</h3>
+                <p>Articles</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="info-stats2">
+            <div class="info-icon warning">
+                <i class="icon-calendar1"></i>
+            </div>
+            <div class="sale-num">
+                <h3>{{ events|length }}</h3>
+                <p>Evenements</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="info-stats2">
+            <div class="info-icon success">
+                <i class="icon-edit1"></i>
+            </div>
+            <div class="sale-num">
+                <h3>{{ questionnaires|length }}</h3>
+                <p>Questionaires</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row end -->
+
+<!-- Row start -->
+<div class="row gutters">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Graphiques</div>
+            </div>
+            <div class="card-body">
+
+                <!-- Row start -->
+                <div class="row gutters align-items-center">
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                        <p>Situation de l'emploie</p>
+                        <div>
+                            <canvas id="activiteStatistique" width="400" height="290"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                        <p>Situation de logement</p>
+                        <div>
+                            <canvas id="logementStatistique" width="400" height="290"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                        <p>Situation matrimoniale</p>
+                        <div>
+                            <canvas id="situationMatrimonialeStatistique" width="400" height="290"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row end -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row end -->
+
+<!-- Charts JS -->
+<script src="{{ asset('themes/admin/vendor/chartjs/Chart.min.js') }}"></script>
+<script src="{{ asset('themes/admin/vendor/chartjs/Chartjs-custom.js') }}"></script>
+<script>
+        var activite = document.getElementById('activiteStatistique').getContext('2d');
+        var activiteStatistique = new Chart(activite, {
+            type: 'pie',
+            data: {
+                labels: {{ activiteFields|raw }},
+                datasets: [{
+                    label: '',
+                    data: {{ groupActivite|raw }},
+                    backgroundColor: [
+                        '#f80000',
+                        '#25D366',
+                        '#ededed',
+                        '#ffa4dc'
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var logement = document.getElementById('logementStatistique').getContext('2d');
+        var logementStatistique = new Chart(logement, {
+            type: 'pie',
+            data: {
+                labels: {{ logementFields|raw }},
+                datasets: [{
+                    label: '',
+                    data: {{ groupLogement|raw }},
+                    backgroundColor: [
+                        '#54eabf',
+                        '#5cbafa',
+                        '#ffa4a4',
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var situationmatrimoniale = document.getElementById('situationMatrimonialeStatistique').getContext('2d');
+        var situationMatrimonialeStatistique = new Chart(situationmatrimoniale, {
+            type: 'pie',
+            data: {
+                labels: {{ sitMatrimonialeFields|raw }},
+                datasets: [{
+                    label: '',
+                    data: {{ groupSitMatrimoniale|raw }},
+                    backgroundColor: [
+                        '#f57f96',
+                        '#fff0b2',
+                        '#8ee8c7',
+                        '#ab7d63',
+                        '#35864c',
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+</script>
+
+{% endblock %}

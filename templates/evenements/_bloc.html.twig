@@ -1,0 +1,22 @@
+<div class="single_blog mb-3">
+
+	{% if event.imageName %}
+	<div class="blog_img">
+		<a href="{{ path('event_details', {'slug': event.slug }) }}"><img src="{{ vich_uploader_asset(event) | imagine_filter('medium_size') }}" class="img-fluid" alt="image" /></a>
+	</div>
+	{% endif %}
+	<div class="blog_content">
+		<span class="blog_cat">
+			<a href="{{ path('event_details', {'slug': event.slug }) }}"><i class="ti-location-pin"></i> Référence Name</a>
+			
+		</span>
+		<h3><a href="{{ path('event_details', {'slug': event.slug }) }}">{{ event.name }}</a></h3>                             
+		<div class="blog-meta">
+			<span class="blog-author">
+				<a href="{{ path('event_details', {'slug': event.slug }) }}">{{ event.user.prenoms }}</a>
+			</span> 
+			<span class="blog-date">{{ event.created|date('M d, Y') }}</span>                              
+		</div>
+		<a href="{{ path('event_details', {'slug': event.slug }) }}" class="blog_btn"><i class="ti-arrow-right"></i></a>
+	</div>
+</div>

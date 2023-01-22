@@ -1,5 +1,16 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_4_layout.html.twig']
+    #form_themes: ['bootstrap_4_Horizontal_layout.html.twig']
+    globals:
+        app_environement: '%env(APP_ENV)%'
+        appName: 'GoImpots'
+        appEmail: 'info.jvgo@gmail.com'
+        appPhone: '+32 467633292'
+        appConcepteur: "HL Conception"
+        appAdresse: "207 Avenue Louise, 1050 Bruxelles, Belgique"
+        appSite: "https://www.jvgo.be"
+        currency: ' €'
 
 when@test:
     twig:
