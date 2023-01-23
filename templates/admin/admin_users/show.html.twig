@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Compte utiilsateur{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>Compte utiilsateur</h1>
 
     <table class="table">
         <tbody>
@@ -26,15 +26,16 @@
                 </td>
             </tr>
             <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
+                <th>Mot de passe</th>
+                <td><i class="fa fa-lock"></i>****</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('admin_users_index') }}">back to list</a>
+    <a href="{{ path('admin_users_index') }}" class="btn btn-light">Comptes utilisateur</a>
 
-    <a href="{{ path('admin_users_edit', {'id': user.id}) }}">edit</a>
+    <a href="{{ path('admin_users_edit', {'id': user.id}) }}" class="btn btn-light">Modifier</a>
 
-    {{ include('admin_users/_delete_form.html.twig') }}
+    {{ include('admin/admin_users/_delete_form.html.twig') }}
+
 {% endblock %}

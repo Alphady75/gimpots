@@ -24,11 +24,12 @@ class UsersFixtures extends Fixture
         for($nbUsers = 1; $nbUsers <= 50; $nbUsers++){
             $user = new User();
             $user->setEmail($faker->email);
-            if($nbUsers === 1)
-                //$user->setEmail('admin@gmail.com');
+            if($nbUsers === 1){
+                $user->setEmail('admin@gmail.com');
                 $user->setRoles(['ROLE_ADMIN']);
-            else
+            }else{
                 $user->setRoles(['ROLE_MODERATEUR']);
+            }
             $user->setNoms($faker->lastName());
             $user->setPrenoms($faker->firstName());
             $user->setGenre('Homme');

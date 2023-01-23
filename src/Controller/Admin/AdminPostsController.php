@@ -76,6 +76,10 @@ class AdminPostsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $slug = $this->sluger->slug($form->get('name')->getData()) . '-' . $post->getId();
+            
+            $post->setSlug($slug);
             $entityManager->flush();
 
             $this->addFlash('success', 'Le contenu a bien été modifié avec succès');

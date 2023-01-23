@@ -39,14 +39,10 @@ class PostType extends AbstractType
             ])
             ->add('content', CKEditorType::class, [
                 'label' => 'Ecrire le contenu de votre article',
+                'required' => false,
                 'config' => array(
                     'uiColor' => '#ffffff',
                 ),
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Ce champ est requis',
-                    ])
-                ],
             ])
             ->add('online', CheckboxType::class, [
                 'label' => "Visible par tous",
