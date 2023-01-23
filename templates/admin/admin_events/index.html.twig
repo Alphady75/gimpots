@@ -46,7 +46,11 @@
                         <img src="{{ vich_uploader_asset(event) | imagine_filter('midle_avatar') }}">
                     {% endif %}
                 </td>
-                <td><span class="badge badge-pill badge-{{ event.online ? 'success' : 'light' }}">{{ event.online ? 'En ligne' : 'Hors ligne' }}</span></td>
+                <td>
+                    <span class="badge badge-pill badge-{{ event.online ? 'success' : 'light' }}">
+                        {{ event.online ? 'En ligne' : 'Hors ligne' }}
+                    </span>
+                </td>
                 <td>{{ event.created ? event.created|date('d/m/Y') : '' }}</td>
                 <td>{{ event.updated ? event.updated|date('d/m/Y') : '' }}</td>
                 <td>

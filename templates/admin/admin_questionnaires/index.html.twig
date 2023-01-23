@@ -28,13 +28,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Prenom</th>
                 <th>Nom</th>
+                <th>Prenom</th>
                 <th>Email</th>
-                <th>CodePostal</th>
-                <th>Telephone</th>
-                <th>Created</th>
-                <th>Updated</th>
+                <th>Date</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -42,20 +39,21 @@
         {% for questionnaire in questionnaires %}
             <tr>
                 <td>{{ questionnaire.id }}</td>
+                <td><strong>{{ questionnaire.nom }}</strong></td>
                 <td>{{ questionnaire.prenom }}</td>
-                <td>{{ questionnaire.nom }}</td>
                 <td>{{ questionnaire.email }}</td>
-                <td>{{ questionnaire.codePostal }}</td>
-                <td>{{ questionnaire.telephone }}</td>
                 <td>{{ questionnaire.created ? questionnaire.created|date('d/m/Y') : '' }}</td>
-                <td>{{ questionnaire.updated ? questionnaire.updated|date('d/m/Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('admin_questionnaires_show', {'id': questionnaire.id}) }}" class="btn btn-primary">Afficher</a>
+
+                    <a href="{{ path('admin_questionnaires_show', {'id': questionnaire.id}) }}" class="btn btn-light">Détails</a>
+
+                    {% include "admin/admin_questionnaires/_delete_form.html.twig" %}
+
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="15">Aucun questionnaire</td>
+                <td colspan="6">Aucun questionnaire</td>
             </tr>
         {% endfor %}
         </tbody>

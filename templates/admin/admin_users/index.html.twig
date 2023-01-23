@@ -61,26 +61,22 @@
                 <td>{{ user.email }}</td>
                 <td>
                     {% if is_granted('ROLE_ADMIN') %}
-                    <div class="badge badge-pill badge-primary">Administrateur</div>
+                    <span class="badge badge-pill badge-light">Administrateur</span>
                     {% endif %}
 
                     {% if is_granted('ROLE_MODERATEUR') %}
-                    <div class="badge badge-pill badge-primary">Modérateur</div>
-                    {% endif %}
-
-                    {% if is_granted('ROLE_USER') %}
-                    <div class="badge badge-pill badge-primary">Utilisateur</div>
+                    <span class="badge badge-pill badge-light">Modérateur</span>
                     {% endif %}
 
                 </td>
                 <td>
                     <a href="{{ path('admin_users_show', {'id': user.id}) }}" class="btn btn-info">Profil</a>
-                    <a href="{{ path('admin_users_edit', {'id': user.id}) }}" class="btn btn-primary">Modifier</a>
+                    <a href="{{ path('admin_users_edit', {'id': user.id}) }}" class="btn btn-light">Modifier</a>
                 </td>
             </tr>
             {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="8">no records found</td>
             </tr>
             {% endfor %}
         </tbody>
